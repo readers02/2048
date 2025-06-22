@@ -24,7 +24,7 @@ int main() {
         }
     }
 
-    //func for moving across array positively
+    //loop for moving across array positively
     for (int y; y<4; y++){
         for (int x; x<4; x++){
             if (grid[x][y] == grid[x+1][y]){
@@ -33,18 +33,30 @@ int main() {
                 x+1;
             }
         }
-        //make loop to push everything to positive side
+        //loop to push everything to positive side
+        for (int x; x<4 ; x++){
+            if(grid[x][y] != 0 && grid[x+1][y] == 0){
+                grid[x+1][y] = grid[x][y];
+                grid[x][y] = 0;
+            }
+        }
     }
-    //func for moving across array negatively
-    for (int y=3; y<=0; y--){
-        for (int x=3; x<=0; x--){
+    //loop for moving across array negatively
+    for (int y=3; y>=0; y--){
+        for (int x=3; x>=0; x--){
             if (grid[x][y] == grid[x-1][y]){
                 grid[x][y] = 0;
                 grid[x-1][y] = (grid[x-1][y])*2;
                 x-1;
             }
         }
-        //make loop to push everything to negative side
+        //loop to push everything to negative side
+        for (int x = 3; x>=0 ; x--){
+            if(grid[x][y] != 0 && grid[x-1][y] == 0){
+                grid[x-1][y] = grid[x][y];
+                grid[x][y] = 0;
+            }
+        }
     }
 
     while (1) {
