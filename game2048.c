@@ -24,12 +24,28 @@ int main() {
         }
     }
 
-    //func for moving across array sideways
+    //func for moving across array positively
     for (int y; y<4; y++){
-
+        for (int x; x<4; x++){
+            if (grid[x][y] == grid[x+1][y]){
+                grid[x][y] = 0;
+                grid[x+1][y] = (grid[x+1][y])*2;
+                x+1;
+            }
+        }
+        //make loop to push everything to positive side
     }
-    //func for moving across array vertically
-
+    //func for moving across array negatively
+    for (int y=3; y<=0; y--){
+        for (int x=3; x<=0; x--){
+            if (grid[x][y] == grid[x-1][y]){
+                grid[x][y] = 0;
+                grid[x-1][y] = (grid[x-1][y])*2;
+                x-1;
+            }
+        }
+        //make loop to push everything to negative side
+    }
 
     while (1) {
         // CODE: here we only call the functions
@@ -41,10 +57,24 @@ int main() {
     return 0;
 }
 
-int[][] negmvmnt(int grid[][]){
-
+int[][] negmvmnt(int grid[][],int direc1, int direc2){
+    for (direc1; direc1<4; direc1++){
+        for (direc2; direc2<4; direc2++){
+            if (grid[direc2][direc1] == grid[direc2][direc1+1]){
+                grid[direc2][direc1] = 0;
+                grid[direc2][direc1+1] = (grid[direc2][y+1])*2;
+            }
+        }
+    }
 }
 
 int[][] posmvmnt(int grid[][]){
-
+    for (direc1; direc1<3; direc1--){
+        for (direc2; direc2<3; direc2--){
+            if (grid[direc2][direc1] == grid[direc2][direc1-1]){
+                grid[direc2][direc1] = 0;
+                grid[direc2][direc1-1] = (grid[direc2][y-1])*2;
+            }
+        }
+    }
 }
